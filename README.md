@@ -34,6 +34,31 @@ flowchart TD
   K[监护人查询] --> L[RAG智能问答]
   J --> L
 ```
+## server流程图
+```mermaid
+flowchart TD
+    A[接收音频帧] --> B[检测人声 classify_audio]
+    B --> C{是否为人声?}
+
+    C -- 是 --> D[缓冲音频片段]
+    D --> E{静音超时?}
+
+    E -- 是 --> F[拼接音频片段 → 整段语音]
+    F --> G[Whisper 语音转文字]
+    G --> H[构建 Gemini Prompt]
+    H --> I[调用 Gemini API]
+    I --> J{Gemini 是否返回 response?}
+
+    J -- 是 --> K[提取 JSON 内容]
+    K --> L{紧急程度为高危?}
+    L -- 是 --> M[广播告警 & 推送通知]
+    L -- 否 --> N[记录对话，无需告警]
+
+    J -- 否 --> O[打印 Gemini 调用失败]
+
+    C -- 否 --> P[忽略当前帧]
+    E -- 否 --> P
+```
 ## Demo启动所需依赖
 
 1. 下载所需文件
@@ -48,3 +73,15 @@ Gemma3参考, 同时参考
 `https://ai.google.dev/edge/mediapipe/solutions/genai/llm_inference?hl=zh-cn#models`
 
 2. 按照项目内`README.md`文档进行配置即可
+
+## demo演示
+硬件演示（校园暴力场景）
+<video controls height='100%' width='100%' src="https://i-am-listening.oss-cn-hangzhou.aliyuncs.com/%E4%BA%A7%E5%93%81%E5%B1%95%E7%A4%BA%E6%9C%80%E7%BB%88%E7%89%88.mov"></video>
+
+APP演示（校园暴力场景）
+<video controls height='100%' width='100%' src="https://i-am-listening.oss-cn-hangzhou.aliyuncs.com/%E6%A0%A1%E5%9B%AD%E9%9C%B8%E5%87%8C%E7%B4%A0%E6%9D%90%E6%9C%80%E7%BB%88%E7%89%88.mov"></video>
+
+APP演示（就医场景）
+<video controls height='100%' width='100%' src="https://i-am-listening.oss-cn-hangzhou.aliyuncs.com/%E9%81%B5%E5%8C%BB%E5%98%B1%E6%9C%80%E7%BB%88%E7%89%88.mov"></video>
+
+https://i-am-listening.oss-cn-hangzhou.aliyuncs.com/%E9%81%B5%E5%8C%BB%E5%98%B1%E6%9C%80%E7%BB%88%E7%89%88.mov
