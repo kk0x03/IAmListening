@@ -73,8 +73,3 @@ Gemma3参考, 同时参考
 `https://ai.google.dev/edge/mediapipe/solutions/genai/llm_inference?hl=zh-cn#models`
 
 2. 按照项目内`README.md`文档进行配置即可
-
-## demo演示
-硬件演示（校园暴力场景）
-
-https://i-am-listening.oss-cn-hangzhou.aliyuncs.com/%E9%81%B5%E5%8C%BB%E5%98%B1%E6%9C%80%E7%BB%88%E7%89%88.mp4
