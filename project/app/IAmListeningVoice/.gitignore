@@ -1,0 +1,14 @@
+*.bin
+*.tflite
+*.csv
+Pods/
+*.task
+
+whisper.xcframework
+
+
+.DS_Store
+
+# 环境变量配置文件
+.env
+

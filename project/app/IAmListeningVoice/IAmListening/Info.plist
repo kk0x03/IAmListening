@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>此应用需要访问麦克风以进行实时语音识别和音频分析</string>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>此应用需要使用语音识别功能来实时转换语音为文字</string>
+    <!-- API Keys配置 - 请在此处配置您的API密钥 -->
+    <!-- <key>GEMINI_API_KEY</key> -->
+    <!-- <string>YOUR_GEMINI_API_KEY_HERE</string> -->
+    <!-- <key>FASTGPT_API_TOKEN</key> -->
+    <!-- <string>YOUR_FASTGPT_API_TOKEN_HERE</string> -->
+</dict>
+</plist>

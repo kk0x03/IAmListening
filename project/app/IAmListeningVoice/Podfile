@@ -1,0 +1,29 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+#plugin 'cocoapods-user-defined-build-types'
+#enable_user_defined_build_types!
+platform :ios, '15.0'
+target 'IAmListening' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  #pod 'MediaPipeTasksGenAI'
+  # Podfile 配置
+  
+  
+  pod 'MediaPipeTasksGenAI'
+end  
+target 'TFLiteWrapper' do
+  use_frameworks!
+  # 在 Podfile 中指定静态链接
+  # 在 Podfile 中
+ # 在 Podfile 顶部添加
+  #plugin 'cocoapods-user-defined-build-types'
+  #enable_user_defined_build_types!
+
+  #pod 'TensorFlowLiteSwift', :modular_headers => true
+  # Podfile 配置
+  
+  pod 'TensorFlowLiteSwift', '~> 2.10.0'
+  #pod 'MediaPipeTasksGenAI'
+  # Pods for IAmListening
+end
