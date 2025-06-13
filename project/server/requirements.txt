@@ -1,0 +1,10 @@
+git+https://github.com/openai/whisper.git
+torch
+torchaudio
+ffmpeg-python
+soundfile
+numpy
+asyncio
+gtts
+whispercpp
+tensorflow_hub
