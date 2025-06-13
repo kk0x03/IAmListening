@@ -308,12 +308,12 @@ class LLMInferenceService: ObservableObject {
             }
             
             if let jsonResponse = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-               let candidates = jsonResponse["candidates"] as? [[String: Any]],
-               let firstCandidate = candidates.first,
-               let content = firstCandidate["content"] as? [String: Any],
-               let parts = content["parts"] as? [[String: Any]],
-               let firstPart = parts.first,
-               let text = firstPart["text"] as? String {
+                let candidates = jsonResponse["candidates"] as? [[String: Any]],
+                let firstCandidate = candidates.first,
+                let content = firstCandidate["content"] as? [String: Any],
+                let parts = content["parts"] as? [[String: Any]],
+                let firstPart = parts.first,
+                let text = firstPart["text"] as? String {
                 return text
             } else {
                 print("Failed to parse API response")
@@ -371,7 +371,7 @@ class LLMInferenceService: ObservableObject {
             
             // 检查紧急程度或特殊场景
             if let urgencyLevel = jsonDict["紧急程度"] as? String,
-               urgencyLevel == "高" {
+                urgencyLevel == "高" {
             
                 print("检测到高紧急程度事件，准备发送通知")
                 await sendEmergencyNotification(scenario: scenario, information: information, suggestedAction: suggestedAction)
@@ -392,7 +392,7 @@ class LLMInferenceService: ObservableObject {
     private func extractJSONFromResponse(_ response: String) -> String {
         // 查找JSON开始和结束的位置
         if let startIndex = response.firstIndex(of: "{"),
-           let endIndex = response.lastIndex(of: "}") {
+            let endIndex = response.lastIndex(of: "}") {
             let jsonRange = startIndex...endIndex
             return String(response[jsonRange])
         }
